@@ -83,11 +83,17 @@ export class TableComponent {
         console.log(error);
       }
     }
-    atualizaFatura(id: Number) {
-      console.log(id)
+    async atualizaFatura(id: Number) {
+      try {
+        const response = await this.requestService.updateInvoice(id).toPromise();
+        this.tableData.keys = response.body;
+      } catch (error) {
+        console.log(error);
+      }
     }
+
     baixarFatura(id: Number) {
-      console.log(id)
+      this.requestService.downloadInvoice(id)
     }
 
     sortTable(column: string) {

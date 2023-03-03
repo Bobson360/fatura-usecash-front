@@ -1,0 +1,10 @@
+#,segmento,descrição,requisito minimo,obrigatorio
+1,frontend,validar validar cobrança =! 0,,✓
+2,frontend,input para upload de arquivo,✓,✓
+3,frontend,tabela com registro carregados,✓,✓
+4,frontend,botão para processar registro especícico,✓,✓
+5,frontend,botão para processar todos registros,✓,✓
+6,frontend,"após registro regerado, inserir botão 2ª via",✓,✓
+7,frontend,botão para download da fatura pdf,,✓
+9,frontend,botão para download de arquivo csv,,✓
+8,frontend,"caso arquivo importado seja invalido, insetir um danger",,✓

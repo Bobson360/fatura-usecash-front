@@ -47,11 +47,11 @@ export class RequestService {
     });
   }
 
-  downloadInvoice(id: Number): Observable<any> {
-    return this.http.get(`/api/fatura/gerar/pdf/${id}`, {
-      observe: 'events'
-    });
+  downloadInvoice(id: Number) {
+    let url = `/api/fatura/gerar/pdf/${id}`;
+  window.open(url, '_blank');
   }
+  
   downloadModelCsv(): Observable<any> {
     return this.http.get(`/api/file/model`, {
       observe: 'events'
