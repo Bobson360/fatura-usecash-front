@@ -34,13 +34,13 @@ export class RequestService {
   }
 
   getRegistries(): Observable<any> {
-    return this.http.get('/api/registry/registries', {
+    return this.http.get(`${this.url}/registry/registries`, {
       observe: 'events'
     });
   }
 
   generateAll(): Observable<any> {
-    return this.http.get('/api/fatura/gerar', {
+    return this.http.get('${this.url}/fatura/gerar', {
       observe: 'events'
     });
   }
@@ -51,18 +51,18 @@ export class RequestService {
     });
   }
   updateInvoice(id: Number): Observable<any> {
-    return this.http.put(`/api/fatura/updade/${id}`, {
+    return this.http.put(`${this.url}/fatura/updade/${id}`, {
       observe: 'events'
     });
   }
 
   downloadInvoice(id: Number) {
-    let url = `/api/fatura/gerar/pdf/${id}`;
+    let url = `${this.url}/fatura/gerar/pdf/${id}`;
   window.open(url, '_blank');
   }
 
   downloadModelCsv(): Observable<any> {
-    return this.http.get(`/api/file/model`, {
+    return this.http.get(`/${this.url}/file/model`, {
       observe: 'events'
     });
   }
