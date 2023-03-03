@@ -8,3 +8,4 @@
 7,frontend,botão para download da fatura pdf,,✓
 9,frontend,botão para download de arquivo csv,,✓
 8,frontend,"caso arquivo importado seja invalido, insetir um danger",,✓
+10,frontend,configurar variaveis de ambiente,,✓
