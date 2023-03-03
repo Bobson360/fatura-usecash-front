@@ -1,3 +1,5 @@
 export const environment = {
-    production: true
+  production: true,
+  API: 'https://usecash.herokuapp.com',
+  BASE_URL: ''
 };

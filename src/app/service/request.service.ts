@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment.prod';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
@@ -7,7 +8,15 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class RequestService {
-  constructor(private http: HttpClient) { }
+  constructor(
+    private http: HttpClient,
+    ) {
+    }
+    api = environment.API
+    baseUrl = environment.BASE_URL
+    url = `${this.api}${this.baseUrl}`
+
+  // api = environment.API
 
   uploadFile(file: File): Observable<any> {
     const formData = new FormData();
@@ -37,7 +46,7 @@ export class RequestService {
   }
 
   generate(id: Number): Observable<any> {
-    return this.http.get(`/api/fatura/gerar/${id}`, {
+    return this.http.get(`${this.url}/fatura/gerar/${id}`, {
       observe: 'events'
     });
   }
@@ -51,7 +60,7 @@ export class RequestService {
     let url = `/api/fatura/gerar/pdf/${id}`;
   window.open(url, '_blank');
   }
-  
+
   downloadModelCsv(): Observable<any> {
     return this.http.get(`/api/file/model`, {
       observe: 'events'
