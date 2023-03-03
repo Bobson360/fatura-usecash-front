@@ -4,6 +4,7 @@ import { faFile, faRotateRight, faFileArrowDown } from '@fortawesome/free-solid-
 interface Header {
   key: string;
   label: string;
+  id: Number
 }
 
 @Component({
@@ -20,31 +21,31 @@ export class TableComponent {
   // data: object[] = [];
   tableData: any[] = [];
   headers: Header[] = [
-      { key: 'id', label: 'ID' },
-      { key: 'cnpj', label: 'CNPJ' },
-      { key: 'nome_FANTASIA', label: 'Nome Fantasia' },
-      { key: 'qtde_LOJA', label: 'Quantidade de Lojas' },
-      { key: 'dias_UTEIS_VECTO_BOLETO', label: 'Dias Úteis' },
-      // { key: 'correios_1', label: 'Correios 1' },
-      // { key: 'correios_2', label: 'Correios 2' },
-      // { key: 'correios_3', label: 'Correios 3' },
-      // { key: 'correios_4', label: 'Correios 4' },
-      { key: 'total_CREDITO_ADQUIRIDO', label: 'Crédito Adquirido' },
-      // { key: 'qtde_TERMOS_EMITIDOS', label: 'Quantidade de Termos Emitidos' },
-      // { key: 'valor_UNITARIO_TERMO_ADESAO', label: 'Valor Unitário do Termo de Adesão' },
-      // { key: 'qtde_CARTAO_EMITIDOS', label: 'Quantidade de Cartões Emitidos' },
-      // { key: 'valor_MENSALIDADE', label: 'Valor da Mensalidade' },
-      // { key: 'taxa_REGIME_ESPECIAL', label: 'Taxa do Regime Especial' },
-      { key: 'qtde_TERMOS_CANCELADOS', label: 'Termos Cancelados' },
-      // { key: 'valor_UNITARIO_EMISSAO_CARTAO', label: 'Valor Unitário da Emissão do Cartão' },
-      // { key: 'email_COBRANCA_2', label: 'Email de Cobrança 2' },
-      { key: 'tipo_MENSALIDADE', label: 'Tipo de Mensalidade' },
-      { key: 'email_COBRANCA_1', label: 'Email de Cobrança 1' },
-      { key: 'status', label: 'Status' },
-      // { key: 'mes_REFERENCIA', label: 'Mês de Referência' },
-      // { key: 'ano_REFERENCIA', label: 'Ano de Referência' },
-      { key: 'dataCriacao', label: 'Data de Criação' },
-      // { key: 'gerarFatura', label: 'Gerar Fatura' },
+      { key: 'id', label: 'ID', id: 1},
+      { key: 'cnpj', label: 'CNPJ' , id: 2},
+      { key: 'nome_FANTASIA', label: 'Nome Fantasia', id: 3},
+      { key: 'qtde_LOJA', label: 'Quantidade de Lojas', id: 4},
+      { key: 'dias_UTEIS_VECTO_BOLETO', label: 'Dias Úteis', id: 5},
+      // { key: 'correios_1', label: 'Correios 1', id: 6},
+      // { key: 'correios_2', label: 'Correios 2', id: 7},
+      // { key: 'correios_3', label: 'Correios 3', id: 8},
+      // { key: 'correios_4', label: 'Correios 4', id: 9},
+      { key: 'total_CREDITO_ADQUIRIDO', label: 'Crédito Adquirido', id: 10},
+      // { key: 'qtde_TERMOS_EMITIDOS', label: 'Quantidade de Termos Emitidos', id: 11},
+      // { key: 'valor_UNITARIO_TERMO_ADESAO', label: 'Valor Unitário do Termo de Adesão', id: 12},
+      // { key: 'qtde_CARTAO_EMITIDOS', label: 'Quantidade de Cartões Emitidos', id: 13},
+      // { key: 'valor_MENSALIDADE', label: 'Valor da Mensalidade', id: 14},
+      // { key: 'taxa_REGIME_ESPECIAL', label: 'Taxa do Regime Especial', id: 15},
+      { key: 'qtde_TERMOS_CANCELADOS', label: 'Termos Cancelados', id: 16},
+      // { key: 'valor_UNITARIO_EMISSAO_CARTAO', label: 'Valor Unitário da Emissão do Cartão', id: 17},
+      // { key: 'email_COBRANCA_2', label: 'Email de Cobrança 2', id: 18},
+      { key: 'tipo_MENSALIDADE', label: 'Tipo de Mensalidade', id: 19},
+      { key: 'email_COBRANCA_1', label: 'Email de Cobrança 1', id: 20},
+      { key: 'status', label: 'Status', id: 21},
+      // { key: 'mes_REFERENCIA', label: 'Mês de Referência', id: 22},
+      // { key: 'ano_REFERENCIA', label: 'Ano de Referência', id: 23},
+      { key: 'dataCriacao', label: 'Data de Criação', id: 24},
+      // { key: 'gerarFatura', label: 'Gerar Fatura', id: 25},
     ];
 
 
@@ -78,7 +79,9 @@ export class TableComponent {
     async gerarFatura(id: Number) {
       try {
         const response = await this.requestService.generate(id).toPromise();
-        this.tableData.keys = response.body;
+        console.log(this.tableData)
+        console.log(response)
+        this.tableData
       } catch (error) {
         console.log(error);
       }

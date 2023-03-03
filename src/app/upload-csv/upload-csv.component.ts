@@ -34,4 +34,8 @@ export class UploadCsvComponent {
             }
     }
   }
+
+  downloadCsvModel(){
+    this.requestService.downloadModelCsv()
+  }
 }

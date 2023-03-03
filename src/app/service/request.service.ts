@@ -35,8 +35,10 @@ export class RequestService {
   }
 
   getRegistries(): Observable<any> {
+    const headers = new HttpHeaders();
+    headers.append('Access-Control-Allow-Credentials', '*');
     return this.http.get(`${this.url}/registry/registries`, {
-      headers: this.headers,
+      headers: headers,
       observe: 'events'
     });
   }
@@ -63,10 +65,10 @@ export class RequestService {
   window.open(url, '_blank');
   }
 
-  downloadModelCsv(): Observable<any> {
-    return this.http.get(`/${this.url}/file/model`, {
-      observe: 'events'
-    });
+  downloadModelCsv() {
+    let url = `${this.url}/file/model`
+    console.log(`baixando modelo: /${this.url}/file/model`)
+    window.open(url, '_blank');
   }
 
 }

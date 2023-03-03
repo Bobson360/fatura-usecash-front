@@ -1,12 +1,19 @@
 <div class="container">
-
-  <form>
-    <div class="form-group">
-      <label for="exampleFormControlFile1">Escolha um arquivo csv para upload</label>
-      <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)">
+  <div class="row">
+    <div class="col-sm">
+      <form>
+        <div class="form-group">
+          <label for="exampleFormControlFile1">Escolha um arquivo csv para upload</label>
+          <input type="file" class="form-control-file" id="exampleFormControlFile1" (change)="onFileSelected($event)">
+        </div>
+        <button type="submit" class="btn btn-primary" (click)="onUpload()">enviar</button>
+      </form>
     </div>
-    <button type="submit" class="btn btn-primary" (click)="onUpload()">enviar</button>
-  </form>
+    <div class="col-sm">
+      <button type="submit" class="btn btn-primary" (click)="downloadCsvModel()">Baixar modelo</button>
+    </div>
+  </div>
+
 
 </div>
 <app-table [tableData]="myJson"></app-table>
