@@ -16,6 +16,7 @@ export class RequestService {
     baseUrl = environment.BASE_URL
     url = `${this.api}${this.baseUrl}`
 
+    headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
   // api = environment.API
 
   uploadFile(file: File): Observable<any> {
@@ -35,6 +36,7 @@ export class RequestService {
 
   getRegistries(): Observable<any> {
     return this.http.get(`${this.url}/registry/registries`, {
+      headers: this.headers,
       observe: 'events'
     });
   }
