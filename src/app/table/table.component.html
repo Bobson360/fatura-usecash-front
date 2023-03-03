@@ -1,0 +1,44 @@
+<table class="table table-hover">
+    <thead class="thead-dark">
+
+      <tr>
+        <th  *ngFor="let header of headers" (click)="sortTable(header.key)">{{ header.label }}</th>
+        <th><button class="btn btn-primary" (click)="gerarTodasFaturas()">Gerar Todas</button></th>
+
+      </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let data of tableData">
+      <td>{{ data.id }}</td>
+      <td>{{ data.cnpj }}</td>
+      <td>{{ data.nome_FANTASIA }}</td>
+      <td>{{ data.dias_UTEIS_VECTO_BOLETO }}</td>
+      <td>{{ data.qtde_LOJA }}</td>
+      <!-- <td>{{ data.correios_1 }}</td>
+      <td>{{ data.correios_2 }}</td>
+      <td>{{ data.correios_3 }}</td>
+      <td>{{ data.correios_4 }}</td> -->
+      <td>{{ data.total_CREDITO_ADQUIRIDO }}</td>
+      <!-- <td>{{ data.qtde_TERMOS_EMITIDOS }}</td>
+        <td>{{ data.valor_UNITARIO_TERMO_ADESAO }}</td>
+      <td>{{ data.qtde_CARTAO_EMITIDOS }}</td>
+      <td>{{ data.valor_MENSALIDADE }}</td>
+      <td>{{ data.taxa_REGIME_ESPECIAL }}</td> -->
+      <td>{{ data.qtde_TERMOS_CANCELADOS }}</td>
+      <!-- <td>{{ data.valor_UNITARIO_EMISSAO_CARTAO }}</td> -->
+      <!-- <td>{{ data.email_COBRANCA_2 }}</td> -->
+      <td>{{ data.tipo_MENSALIDADE }}</td>
+      <td>{{ data.email_COBRANCA_1 }}</td>
+      <td>{{ data.status }}</td>
+      <!-- <td>{{ data.mes_REFERENCIA }}</td>
+      <td>{{ data.ano_REFERENCIA }}</td> -->
+      <td>{{ data.dataCriacao }}</td>
+      <td *ngIf="data.status !== 'BLOQUEADO' && data.status !== 'ERRO'">
+        <a style="cursor: pointer; color: gray;" (click)="gerarFatura(data.id)" ngbTooltip="Gerar Fatura"><fa-icon [icon]="faFile" size="2x"></fa-icon></a>&nbsp;
+        <a style="cursor: pointer; color: tomato;" (click)="atualizaFatura(data.id)" ngbTooltip="Atualizar Fatura"><fa-icon [icon]="faRotateRight" size="2x"></fa-icon></a>&nbsp;
+        <a style="cursor: pointer; color: yellowgreen;" (click)="baixarFatura(data.id)" ngbTooltip="Baixar Fatura"><fa-icon [icon]="faFileArrowDown" size="2x"></fa-icon></a>&nbsp;
+        <!-- <button class="btn btn-primary" (click)="gerarFatura(data.id)">Atualizar</button> -->
+      </td>
+    </tr>
+  </tbody>
+</table>
