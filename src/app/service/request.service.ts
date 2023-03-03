@@ -16,7 +16,7 @@ export class RequestService {
     baseUrl = environment.BASE_URL
     url = `${this.api}${this.baseUrl}`
 
-    headers = new HttpHeaders().set('Access-Control-Allow-Origin', '*')
+    headers = new HttpHeaders().set('Access-Control-Allow-Credentials', 'true')
   // api = environment.API
 
   uploadFile(file: File): Observable<any> {
